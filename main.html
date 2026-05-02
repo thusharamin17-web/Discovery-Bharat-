@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discovery Bharat</title>
+<link rel="stylesheet" href="main.css">
+<script defer src="script.js"></script>
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+    <h1 id="title">Discovery Bharat</h1>
+    <p id="subtitle">Explore India - States, Rivers &amp; Culture</p>
+</header>
+
+<!-- Navbar -->
+<nav>
+<button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
+<ul id="navMenu">
+<li><a href="#" id="nav-home">Home</a></li>
+<li>
+    <a href="javascript:void(0)" id="nav-lang">Languages ▾</a>
+
+    <ul class="dropdown">
+        <li><a href="javascript:void(0)" onclick="setLanguage('en')">English</a></li>
+        <li><a href="javascript:void(0)" onclick="setLanguage('hi')">हिंदी</a></li>
+        <li><a href="javascript:void(0)" onclick="setLanguage('kn')">ಕನ್ನಡ</a></li>
+    </ul>
+</li>
+
+
+<li><a href="ut.html" id="nav-ut">Union Territories</a></li>
+<li><a href="river.html" id="nav-river">Rivers</a></li>
+<li><a href="mountain.html" id="nav-mountain">Mountains</a></li>
+<li><a href="aboutus2.html" id="nav-about">About</a></li>
+<li><a href="contact2.html" id="nav-contact">Contact</a></li>
+</ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+<h2 id="hero-title">Interactive India Map</h2>
+<p id="hero-text">Click on any state to explore</p>
+</section>
+
+<!-- Map Section -->
+<section class="map-container">
+
+<!-- ✅ FIXED: Added id + responsive -->
+<img id="indiaMap"
+     src="videos/india-map.jpg"
+     usemap="#image-map"
+     alt="India Map"
+     style="max-width:100%;">
+
+<!-- Highlight Box -->
+<div id="highlight-box"></div>
+
+<map name="image-map">
+
+<!-- ✅ SAME AREAS (ONLY REMOVED target="_blank") -->
+
+<!-- SOUTH INDIA -->
+
+<area shape="poly"
+coords="666,1231,527,1315,503,1403,547,1520,651,1583,725,1509,629,1410,649,1338,666,1297"
+alt="Karnataka"
+title="Karnataka"
+href="kar.html">
+
+<area shape="poly"
+coords="556,1544,603,1580,637,1627,664,1698,663,1773,629,1710"
+alt="Kerala"
+title="Kerala"
+href="https://en.wikipedia.org/wiki/Kerala">
+
+<area shape="poly"
+coords="823,1511,716,1548,703,1568,643,1601,688,1773,771,1707,813,1658,807,1617,807,1556"
+alt="Tamil Nadu"
+title="Tamil Nadu"
+href="https://en.wikipedia.org/wiki/Tamil_Nadu">
+
+<area shape="poly"
+coords="837,1479,820,1377,1071,1180,963,1213,832,1288,669,1353,663,1420,732,1457,747,1509,796,1499,818,1483"
+alt="Andhra Pradesh"
+title="Andhra Pradesh"
+href="https://en.wikipedia.org/wiki/Andhra_Pradesh">
+
+<area shape="poly"
+coords="718,1166,688,1253,687,1323,751,1314,862,1256,852,1204,808,1146,768,1131,745,1129"
+alt="Telangana"
+title="Telangana"
+href="https://en.wikipedia.org/wiki/Telangana">
+
+<!-- WEST INDIA -->
+
+<area shape="poly"
+coords="510,1010,649,1046,829,1026,820,1126,725,1090,677,1184,591,1252,531,1282,491,1342,452,1265,432,1214,432,1156,415,1115"
+alt="Maharashtra"
+title="Maharashtra"
+href="https://en.wikipedia.org/wiki/Maharashtra">
+
+<area shape="poly"
+coords="487,1297,502,1340,530,1342,537,1307"
+alt="Goa"
+title="Goa"
+href="https://en.wikipedia.org/wiki/Goa">
+
+<area shape="poly"
+coords="412,844,491,919,451,1061,278,1051,180,882,212,853,261,860,295,851,356,829"
+alt="Gujarat"
+title="Gujarat"
+href="https://en.wikipedia.org/wiki/Gujarat">
+
+<area shape="poly"
+coords="395,587,500,490,669,650,630,821,520,768,510,902,351,797,229,687,263,633"
+alt="Rajasthan"
+title="Rajasthan"
+href="https://en.wikipedia.org/wiki/Rajasthan">
+
+<!-- CENTRAL INDIA -->
+
+<area shape="poly"
+coords="515,968,581,1007,854,1002,957,827,773,785,744,856,752,710,695,710,649,744,676,842,547,820"
+alt="Madhya Pradesh"
+title="Madhya Pradesh"
+href="https://en.wikipedia.org/wiki/Madhya_Pradesh">
+
+<area shape="poly"
+coords="961,871,866,1083,854,1174,900,1205,930,1144,1039,922,1015,876"
+alt="Chhattisgarh"
+title="Chhattisgarh"
+href="https://en.wikipedia.org/wiki/Chhattisgarh">
+
+<!-- EAST INDIA -->
+
+<area shape="poly"
+coords="1043,964,1206,992,1185,1093,1064,1157,930,1208"
+alt="Odisha"
+title="Odisha"
+href="https://en.wikipedia.org/wiki/Odisha">
+
+<area shape="poly"
+coords="1148,873,1165,951,1092,951,1024,846,1266,799,1194,865"
+alt="Jharkhand"
+title="Jharkhand"
+href="https://en.wikipedia.org/wiki/Jharkhand">
+
+<area shape="poly"
+coords="1058,662,1180,709,1272,719,1208,802,1043,809,1104,760"
+alt="Bihar"
+title="Bihar"
+href="https://en.wikipedia.org/wiki/Bihar">
+
+<area shape="poly"
+coords="1327,673,1296,674,1268,766,1269,846,1193,902,1239,981,1327,998"
+alt="West Bengal"
+title="West Bengal"
+href="https://en.wikipedia.org/wiki/West_Bengal">
+
+<area shape="poly"
+coords="1272,612,1310,604,1327,651,1296,672,1268,660"
+alt="Sikkim"
+title="Sikkim"
+href="https://en.wikipedia.org/wiki/Sikkim">
+
+<!-- NORTH INDIA -->
+ <area  shape="poly"
+  alt="Uttarakhand" 
+ title="Uttarakhand" 
+ href="https://en.wikipedia.org/wiki/Uttarakhand" 
+ coords="707,403,783,389,863,466,827,545,703,481">
+
+<area shape="poly"
+coords="688,480,705,655,778,694,766,767,1000,802,1052,741,1018,668"
+alt="Uttar Pradesh"
+title="Uttar Pradesh"
+href="https://en.wikipedia.org/wiki/Uttar_Pradesh">
+
+<area shape="poly"
+coords="581,510,668,466,628,540,661,618,566,546,513,492"
+alt="Haryana"
+title="Haryana"
+href="https://en.wikipedia.org/wiki/Haryana">
+
+<area shape="poly"
+coords="564,498,649,453,582,353,533,376,496,471"
+alt="Punjab"
+title="Punjab"
+href="https://en.wikipedia.org/wiki/Punjab,_India">
+
+<area shape="poly"
+coords="607,293,608,372,686,440,732,322,642,276"
+alt="Himachal Pradesh"
+title="Himachal Pradesh"
+href="https://en.wikipedia.org/wiki/Himachal_Pradesh">
+
+<area shape="poly"
+coords="507,142,568,206,622,257,581,311,476,267,458,183"
+alt="Jammu & Kashmir"
+title="Jammu & Kashmir"
+href="https://en.wikipedia.org/wiki/Jammu_and_Kashmir_(union_territory)">
+
+<area shape="poly"
+coords="425,87,724,300,849,119,661,117,510,19"
+alt="Ladakh"
+title="Ladakh"
+href="https://en.wikipedia.org/wiki/Ladakh">
+
+<!-- NORTHEAST -->
+
+<area shape="poly"
+coords="1703,644,1562,687,1391,700,1386,758,1438,736,1523,722"
+alt="Assam"
+title="Assam"
+href="https://en.wikipedia.org/wiki/Assam">
+
+<area shape="rect"
+coords="1446,815,1510,924"
+alt="Tripura"
+title="Tripura"
+href="https://en.wikipedia.org/wiki/Tripura">
+
+<area shape="rect"
+coords="1523,846,1578,987"
+alt="Mizoram"
+title="Mizoram"
+href="https://en.wikipedia.org/wiki/Mizoram">
+
+<area shape="rect"
+coords="1578,782,1693,852"
+alt="Manipur"
+title="Manipur"
+href="https://en.wikipedia.org/wiki/Manipur">
+
+<area shape="poly"
+coords="1598,754,1662,757,1673,683"
+alt="Nagaland"
+title="Nagaland"
+href="https://en.wikipedia.org/wiki/Nagaland">
+<area  alt="Meghalaya" 
+ title="Meghalaya" href="https://en.wikipedia.org/wiki/Meghalaya" 
+ coords="1374,783,1405,751,1510,743,1535,768,1518,792,1442,783"
+  shape="poly">
+
+<area shape="poly"
+coords="1508,627,1524,666,1680,612,1740,662,1803,599"
+alt="Arunachal Pradesh"
+title="Arunachal Pradesh"
+href="https://en.wikipedia.org/wiki/Arunachal_Pradesh">
+<area  alt="New Delhi" title="New Delhi" href="https://en.wikipedia.org/wiki/New_Delhi" coords="654,558,16" shape="circle">
+<area  alt="Lakshadweep" title="Lakshadweep" href="https://en.wikipedia.org/wiki/Lakshadweep" coords="448,1582,79" shape="circle">
+    <area  alt="Andaman and Nicobar Islands" title="Andaman and Nicobar Islands" href="https://en.wikipedia.org/wiki/Andaman_and_Nicobar_Islands" coords="1488,1458,1613,1746" shape="rect">
+    
+</map>
+
+</section>
+
+
+
+
+<footer>
+<p id="footer-text">© 2026 Discovery Bharat By <strong>T&amp;Team</strong></p>
+</footer>
+<script src="https://unpkg.com/image-map-resizer@1.0.10/js/imageMapResizer.min.js"></script>
+
+<script>
+window.addEventListener('load', function() {
+    imageMapResize();
+});
+</script>
+</body>
+</html>

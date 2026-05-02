@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mangaluru Explorer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;600&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="common2.css">
+</head>
+
+<body>
+
+<!-- Ambient particles -->
+<div class="particles" id="particles"></div>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="header-bg"></div>
+    <div class="header-content">
+        <div class="header-emblem">✦</div>
+        <p class="header-kicker">Bharat · Karnataka</p>
+        <h1 class="header-title">Mangaluru</h1>
+        <p class="header-tagline">India's Jewel on the Arabian Sea</p>
+        <div class="header-rule">
+            <span></span>
+            <span class="diamond">◆</span>
+            <span></span>
+        </div>
+        <p class="header-desc">Explore the Pearl of the Arabian Coast</p>
+    </div>
+    <div class="scroll-cue">
+        <span>Scroll</span>
+        <div class="scroll-bar"></div>
+    </div>
+</header>
+<div class="back-link-wrap"><a href="dk.html" class="back-link">← Back to Dakshina Kannada</a></div>
+
+<main class="container">
+
+    <!-- MAP SECTION -->
+    <section class="section-map" data-reveal>
+        <span class="section-label">Navigate</span>
+        <h2 class="section-title">City Map</h2>
+        <div class="map-wrapper">
+            <div class="map-glow"></div>
+            <img src="videos/m1.jpeg" class="district-map" alt="Mangaluru City Map" usemap="#city-map">
+            <map name="city-map">
+                <area alt="UCM" coords="314,571,419,659" shape="rect" href="ucm.html" target="_blank">
+            </map>
+            <div class="map-badge">
+                <span class="map-dot"></span>
+                Explore the city
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPLORE SECTION -->
+    <section class="section-explore" data-reveal>
+        <span class="section-label">Discover</span>
+        <h2 class="section-title">Explore Topics</h2>
+
+        <div class="explore-grid">
+
+            <button class="explore-btn" onclick="openPage('history')">
+                <div class="btn-content">
+                    <span class="btn-title">History</span>
+                    <span class="btn-sub">Dynasties & Colonial Era</span>
+              
+                </div>
+                <span class="btn-arrow">→</span>
+                <div class="btn-shimmer"></div>
+            </button>
+
+            <button class="explore-btn" onclick="openPage('geography')">
+              
+                <div class="btn-content">
+                    <span class="btn-title">Geography</span>
+                    <span class="btn-sub">Coast & Western Ghats</span>
+                </div>
+                <span class="btn-arrow">→</span>
+                <div class="btn-shimmer"></div>
+            </button>
+
+            <button class="explore-btn" onclick="openPage('economy')">
+              
+                <div class="btn-content">
+                    <span class="btn-title">Economy</span>
+                    <span class="btn-sub">Port, Trade & Industry</span>
+                </div>
+                <span class="btn-arrow">→</span>
+                <div class="btn-shimmer"></div>
+            </button>
+
+            <button class="explore-btn" onclick="openPage('culture')">
+             
+                <div class="btn-content">
+                    <span class="btn-title">Culture</span>
+                    <span class="btn-sub">Yakshagana & Traditions</span>
+                </div>
+                <span class="btn-arrow">→</span>
+                <div class="btn-shimmer"></div>
+            </button>
+
+            <button class="explore-btn" onclick="openPage('food')">
+              
+                <div class="btn-content">
+                    <span class="btn-title">Food</span>
+                    <span class="btn-sub">Coastal Flavours</span>
+                </div>
+                <span class="btn-arrow">→</span>
+                <div class="btn-shimmer"></div>
+            </button>
+
+            <button class="explore-btn" onclick="openPage('transport')">
+              
+                <div class="btn-content">
+                    <span class="btn-title">Transport</span>
+                    <span class="btn-sub">Air · Rail · Road · Sea</span>
+                </div>
+                <span class="btn-arrow">→</span>
+                <div class="btn-shimmer"></div>
+            </button>
+
+        </div>
+    </section>
+
+    <!-- FACTS STRIP -->
+    <section class="facts-strip" data-reveal>
+        <div class="facts-inner">
+            <div class="fact-item">
+                <span class="fact-num" data-target="4">0</span>
+                <span class="fact-label">Transport Modes</span>
+            </div>
+            <div class="fact-divider">◆</div>
+            <div class="fact-item">
+                <span class="fact-num" data-target="500">0</span>
+                <span class="fact-label">Years of History</span>
+            </div>
+            <div class="fact-divider">◆</div>
+            <div class="fact-item">
+                <span class="fact-num" data-target="6">0</span>
+                <span class="fact-label">Major Communities</span>
+            </div>
+            <div class="fact-divider">◆</div>
+            <div class="fact-item">
+                <span class="fact-num" data-text="Smart">–</span>
+                <span class="fact-label">City of India</span>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+   
+        <p class="footer-name">© 2026 Discovery Bharat By <strong>T&amp;Team</strong></p>
+      
+    </div>
+</footer>
+
+<!-- SCROLL TO TOP -->
+<button id="scrollTopBtn" aria-label="Scroll to top">↑</button>
+
+<!-- ════════════ OVERLAY ════════════ -->
+<div id="overlay" class="overlay" onclick="closeOverlay(event)">
+    <div class="overlay-box">
+
+        <button class="close-btn" onclick="closePage()">✕</button>
+
+        <div class="overlay-header">
+            <div class="overlay-label" id="overlayLabel"></div>
+            <h2 id="overlayTitle"></h2>
+        </div>
+
+        <!-- SLIDESHOW -->
+        <div class="slideshow-wrap">
+            <div class="slide-track">
+                <img id="slideImg" alt="">
+                <div class="slide-gradient"></div>
+            </div>
+            <div class="slide-controls">
+                <button class="slide-btn" id="prevBtn" onclick="prevSlide()">‹</button>
+                <div class="slide-dots" id="slideDots"></div>
+                <button class="slide-btn" id="nextBtn" onclick="nextSlide()">›</button>
+            </div>
+        </div>
+
+        <div id="content" class="overlay-content"></div>
+
+    </div>
+</div>
+
+<script src="mang.js"></script>
+</body>
+</html>

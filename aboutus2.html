@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Discovery Bharat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --saffron:    #FF9933;
+            --saffron-lt: #FFF4E6;
+            --saffron-dk: #CC7000;
+            --green:      #138808;
+            --green-lt:   #E8F5E6;
+            --green-dk:   #0A5C04;
+            --navy:       #000080;
+            --white:      #FFFFFF;
+            --off-white:  #F8F6F2;
+            --stone:      #E8E5DF;
+            --ink:        #12122A;
+            --muted:      #6A6A82;
+            --transition: 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', 'Segoe UI', sans-serif;
+            background: var(--off-white);
+            color: var(--ink);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            animation: pageIn 0.6s ease both;
+        }
+
+        @keyframes pageIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Dot texture */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255,153,51,0.06) 1px, transparent 1px);
+            background-size: 28px 28px;
+            z-index: -1;
+        }
+
+        /* Top tricolor stripe */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--saffron) 33.33%, var(--white) 33.33% 66.66%, var(--green) 66.66%);
+            z-index: 100;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 32px;
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            letter-spacing: 0.5px;
+            transition: color var(--transition), transform var(--transition);
+        }
+
+        .back-link:hover {
+            color: var(--saffron-dk);
+            transform: translateX(-4px);
+        }
+
+        .container {
+            background: var(--white);
+            padding: 52px 48px;
+            border-radius: 22px;
+            border: 1px solid var(--stone);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.09);
+            max-width: 760px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Saffron corner accent */
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 50px; height: 50px;
+            border-top: 3px solid var(--saffron);
+            border-left: 3px solid var(--saffron);
+            border-radius: 22px 0 0 0;
+            transition: width 0.4s ease, height 0.4s ease;
+        }
+
+        /* Green corner accent */
+        .container::after {
+            content: "";
+            position: absolute;
+            bottom: 0; right: 0;
+            width: 50px; height: 50px;
+            border-bottom: 3px solid var(--green);
+            border-right: 3px solid var(--green);
+            border-radius: 0 0 22px 0;
+            transition: width 0.4s ease, height 0.4s ease;
+        }
+
+        .container:hover::before,
+        .container:hover::after {
+            width: 70px; height: 70px;
+        }
+
+        .label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--saffron);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 6px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--saffron-dk), var(--ink) 50%, var(--green-dk));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 20px 0 28px;
+        }
+
+        .divider .line {
+            flex: 1;
+            height: 1px;
+            background: var(--stone);
+        }
+
+        .divider .dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--saffron), var(--green));
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: #3A3A55;
+            margin-bottom: 22px;
+            text-align: justify;
+        }
+
+        p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .footer-note {
+            margin-top: 36px;
+            padding-top: 20px;
+            border-top: 1px solid var(--stone);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .footer-note span {
+            font-size: 0.82rem;
+            color: var(--muted);
+            letter-spacing: 0.3px;
+        }
+
+        .footer-note .badge {
+            font-size: 0.75rem;
+            padding: 4px 14px;
+            background: var(--saffron-lt);
+            color: var(--saffron-dk);
+            border-radius: 60px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 32px 22px; }
+            body { padding: 24px 14px; }
+        }
+
+        .footer-note strong {
+            color: var(--saffron-dk);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="main.html" class="back-link">← Back to Map</a>
+
+    <div class="container">
+        <div class="label">Discovery Bharat</div>
+        <h1>About Us</h1>
+
+        <div class="divider">
+            <div class="line"></div>
+            <div class="dot"></div>
+            <div class="line"></div>
+        </div>
+
+        <p>
+            Welcome to our dedicated platform, where the majestic peaks and winding waterways of India's Union Territories come to life. Our mission is to bridge the gap between nature enthusiasts and the raw, untouched beauty of regions like Ladakh, Jammu &amp; Kashmir, and the Andaman Islands. By documenting the intricate relationship between towering mountain ranges and the life-giving rivers that flow from them, we aim to provide a comprehensive resource for travelers, students, and conservationists alike.
+        </p>
+
+        <p>
+            We believe that understanding these diverse landscapes is the first step toward preserving them. Our website is more than just a digital map; it is a tribute to the geological wonders and cultural heritage that define India's Union Territories. Whether you are looking for the source of a glacial stream or the history of a high-altitude pass, we invite you to explore our curated content and join us in celebrating the breathtaking natural legacy of these unique regions.
+        </p>
+
+        <div class="footer-note">
+            <span>© 2026 Discovery Bharat By <strong>T&amp;Team</strong></span>
+            <span class="badge">Explore India</span>
+        </div>
+    </div>
+
+</body>
+</html>

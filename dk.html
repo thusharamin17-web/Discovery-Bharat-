@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dakshina Kannada Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;600&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="common2.css">
+</head>
+<body>
+
+<!-- Ambient particles -->
+<div class="particles" id="particles"></div>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="header-bg"></div>
+    <div class="header-content">
+        <div class="header-emblem">✦</div>
+        <p class="header-subtitle">Bharat, Karnataka</p>
+        <h1 class="header-title">Dakshina Kannada</h1>
+        <p class="header-tagline">Where the Ghats kiss the Arabian Sea</p>
+        <div class="header-divider"><span></span><span class="diamond">◆</span><span></span></div>
+        <p class="header-desc">Explore the Land of Tulu Nadu</p>
+    </div>
+    <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+    </div>
+</header>
+
+<!-- MAIN -->
+<main class="container">
+
+    <!-- MAP SECTION -->
+    <section class="section-map" data-reveal>
+        <div class="section-label">District Map</div>
+        <h2 class="section-title">Explore the Taluks</h2>
+        <div class="map-wrapper">
+            <div class="map-glow"></div>
+            <img src="videos/dk_converted.jpg" usemap="#map" class="district-map" alt="Dakshina Kannada District Map">
+            <map name="map">
+                <area target="_blank" alt="Mangaluru" title="Mangaluru" href="mang.html" coords="3,82,59,51,102,133,158,166,138,279,80,358" shape="poly">
+                <area target="_blank" alt="Bantwal" title="Bantwal" href="https://en.wikipedia.org/wiki/Bantwal" coords="169,204,228,146,350,230,296,401,238,413,141,322" shape="poly">
+                <area target="_blank" alt="Beltangady" title="Beltangady" href="https://en.wikipedia.org/wiki/Beltangadi" coords="260,119,350,31,569,46,640,265,408,278" shape="poly">
+                <area target="_blank" alt="Puttur" title="Puttur" href="https://en.wikipedia.org/wiki/Puttur" coords="317,404,411,283,688,279,714,389,458,382,465,453,376,496" shape="poly">
+                <area target="_blank" alt="Sulya" title="Sulya" href="https://en.wikipedia.org/wiki/Sulya" coords="728,404,758,538,481,599,406,525,477,444,470,415,549,388,657,404" shape="poly">
+            </map>
+            <div class="map-legend">
+                <div class="legend-item"><span class="dot"></span>Click a taluk to explore</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPLORE SECTION -->
+    <section class="section-explore" data-reveal>
+        <div class="section-label">Discover</div>
+        <h2 class="section-title">Explore DK</h2>
+        <div class="explore-grid">
+            <button class="explore-btn" onclick="openPage('geography')" data-index="0">
+               
+                <div class="btn-content">
+                    <span class="btn-title">Geography</span>
+                    <span class="btn-sub">Landscape & Climate</span>
+                </div>
+                <div class="btn-arrow">→</div>
+                <div class="btn-shimmer"></div>
+            </button>
+            <button class="explore-btn" onclick="openPage('economy')" data-index="1">
+                
+                <div class="btn-content">
+                    <span class="btn-title">Economy</span>
+                    <span class="btn-sub">Trade & Industry</span>
+                </div>
+                <div class="btn-arrow">→</div>
+                <div class="btn-shimmer"></div>
+            </button>
+            <button class="explore-btn" onclick="openPage('culture')" data-index="2">
+             
+                <div class="btn-content">
+                    <span class="btn-title">Culture</span>
+                    <span class="btn-sub">Yakshagana & Traditions</span>
+                </div>
+                <div class="btn-arrow">→</div>
+                <div class="btn-shimmer"></div>
+            </button>
+            <button class="explore-btn" onclick="openPage('education')" data-index="3">
+               
+                <div class="btn-content">
+                    <span class="btn-title">Education</span>
+                    <span class="btn-sub">Institutions & Heritage</span>
+                </div>
+                <div class="btn-arrow">→</div>
+                <div class="btn-shimmer"></div>
+            </button>
+            <button class="explore-btn" onclick="openPage('tourism')" data-index="4">
+               
+                <div class="btn-content">
+                    <span class="btn-title">Tourism</span>
+                    <span class="btn-sub">Beaches & Temples</span>
+                </div>
+                <div class="btn-arrow">→</div>
+                <div class="btn-shimmer"></div>
+            </button>
+        </div>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-deco">◆</div>
+    <p>© 2026 Discovery Bharat By <strong>T&amp;Team</strong></p>
+    
+</footer>
+
+<!-- OVERLAY -->
+<div id="overlay" class="overlay" onclick="closeOverlay(event)">
+    <div class="overlay-box">
+        <button class="close-btn" onclick="closePage()">✕</button>
+
+        <div class="overlay-header">
+            <div class="overlay-label" id="overlayLabel"></div>
+            <h2 id="overlayTitle"></h2>
+        </div>
+
+        <div class="slideshow-container">
+            <div class="slide-track">
+                <img id="slideImg" alt="Section image">
+                <div class="slide-overlay-gradient"></div>
+            </div>
+            <div class="slide-controls">
+                <button class="slide-btn" onclick="prevSlide()">‹</button>
+                <div class="slide-dots" id="slideDots"></div>
+                <button class="slide-btn" onclick="nextSlide()">›</button>
+            </div>
+        </div>
+
+        <div id="content" class="overlay-content"></div>
+    </div>
+</div>
+
+<script src="dk.js"></script>
+</body>
+</html>

@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<!-- DOCTYPE tells the browser this is an HTML5 page -->
+ 
+<html lang="en">
+<!-- lang="en" tells the browser the page language is English -->
+ 
+<head>
+  <!-- The <head> section contains settings for the page (not visible to users) -->
+ 
+  <meta charset="UTF-8">
+  <!-- charset="UTF-8" allows the page to show all letters including Kannada, symbols etc. -->
+ 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- This line makes the website look correct on mobile phones and tablets -->
+ 
+  <title>University College Mangalore</title>
+  <!-- This text appears on the browser tab at the top -->
+ 
+  <!-- Google Fonts: loads two fonts from the internet -->
+  <!-- Playfair Display is used for headings, Lato is used for body text -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+ 
+  <!-- Link to our external CSS file that controls all the styling/design -->
+  <link rel="stylesheet" href="ucm.css">
+</head>
+ 
+<body>
+<!-- Everything inside <body> is visible on the webpage -->
+ 
+ 
+<!-- ═══════════════════════════════════════════
+     MOBILE MENU
+     This div is hidden by default (CSS: display:none).
+     It slides open when the hamburger ☰ button is tapped.
+     Closing it calls closeMobile() in ucm.js.
+═══════════════════════════════════════════ -->
+<div class="mobile-menu" id="mobileMenu">
+ 
+  <!-- X button to close the mobile menu -->
+  <button class="mobile-close" onclick="closeMobile()">&#x2715;</button>
+  <!-- &#x2715; is the HTML code for the ✕ symbol -->
+ 
+  <!-- Each link scrolls to a section. onclick="closeMobile()" closes the menu after clicking -->
+  <a href="#about"       onclick="closeMobile()">About</a>
+  <a href="#history"     onclick="closeMobile()">History</a>
+  <a href="#gallery"     onclick="closeMobile()">Gallery</a>
+  <a href="#videos"      onclick="closeMobile()">Events</a>
+  <a href="#departments" onclick="closeMobile()">Departments</a>
+  <a href="#contact"     onclick="closeMobile()">Contact</a>
+</div>
+ 
+ 
+<!-- ═══════════════════════════════════════════
+     NAVIGATION BAR
+     Fixed at the top of the page always.
+     Becomes dark background when user scrolls down (ucm.js handles this).
+═══════════════════════════════════════════ -->
+<nav id="mainNav">
+ 
+  <!-- Left side: College name and emblem -->
+ <left><a class="nav-brand" href="#">
+   
+   <div class="nav-name"><a href="mang.html" class="back-link">← Back to Mangaluru</a></div>
+
+  </a> </left> 
+
+  <!-- Desktop navigation links (hidden on mobile, shown on larger screens) -->
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#history">History</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#videos">Events</a></li>
+    <li><a href="#departments">Departments</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+ 
+  <!-- Hamburger ☰ button: shown only on mobile to open the mobile menu -->
+  <button class="nav-hamburger" onclick="toggleMobile()" aria-label="Open menu">
+    <span></span>  <!-- Line 1 of hamburger icon -->
+    <span></span>  <!-- Line 2 of hamburger icon -->
+    <span></span>  <!-- Line 3 of hamburger icon -->
+  </button>
+</nav>
+ 
+
+<!-- ═══════════════════════════════════════════
+     HERO SECTION (full screen image slideshow at the top)
+ 
+     HOW TO ADD YOUR IMAGES:
+     Step 1: Create a folder called "images" in the same folder as ucm.html
+     Step 2: Copy your photos into that "images" folder
+     Step 3: Name them uc1.jpg, uc2.jpg, uc3.jpg
+             OR change the filenames below to match your actual filenames
+     Recommended size: 1920 x 1080 pixels
+═══════════════════════════════════════════ -->
+<section class="hero">
+ 
+  <!-- This div holds all the slideshow background images -->
+  <div class="hero-slideshow">
+ 
+    <!-- SLIDE 1: Add your first photo here (campus front view recommended) -->
+    <!-- class="active" means this slide is visible when the page loads -->
+    <!-- style="background-image: url(...)" sets the photo as the background -->
+    <div class="hero-slide active" style="background-image: url('images/uc1.jpg')"></div>
+ 
+    <!-- SLIDE 2: Add your second photo here -->
+    <div class="hero-slide" style="background-image: url('images/uc2.jpg')"></div>
+ 
+    <!-- SLIDE 3: Add your third photo here -->
+    <div class="hero-slide" style="background-image: url('images/uc3.jpg')"></div>
+  </div>
+ 
+  <!-- A dark transparent layer placed over the images so white text is readable -->
+  <div class="hero-overlay"></div>
+ 
+  <!-- The text shown in the center of the hero section -->
+  <div class="hero-content">
+ 
+    <!-- Small gold text above the main title -->
+    <p class="hero-kicker">Est. 1868 &middot; Mangaluru, Karnataka</p>
+    <!-- &middot; is the HTML code for the · (middle dot) character -->
+ 
+    <!-- Main large heading -->
+    <h1 class="hero-title">University College<br><span>Mangalore</span></h1>
+    <!-- <br> creates a new line. <span> is used to color "Mangalore" in gold -->
+ 
+    <!-- Tagline sentence below the heading -->
+    <p class="hero-tagline">Where Heritage Meets Excellence</p>
+ 
+    <!-- Decorative divider: line ── ◆ ── line -->
+    <div class="hero-rule">
+      <span class="line"></span>
+      <span class="diamond">◆</span>
+      <span class="line"></span>
+    </div>
+ 
+    <!-- Small text below the divider -->
+    <p class="hero-est">A Constituent College of Mangalore University</p>
+ 
+    <!-- Two action buttons -->
+    <div class="hero-btns">
+      <a href="#about"   class="btn-primary">Explore UCM</a>   <!-- Gold filled button -->
+      <a href="#contact" class="btn-outline">Get in Touch</a>  <!-- Outlined button -->
+    </div>
+  </div>
+ 
+  <!-- Slide indicator dots at the bottom center of the hero -->
+  <!-- One dot per slide. Clicking a dot jumps to that slide (goToSlide is defined in ucm.js) -->
+  <div class="slide-indicators">
+    <span class="slide-dot active" onclick="goToSlide(0)"></span>  <!-- Dot for Slide 1 -->
+    <span class="slide-dot"        onclick="goToSlide(1)"></span>  <!-- Dot for Slide 2 -->
+    <span class="slide-dot"        onclick="goToSlide(2)"></span>  <!-- Dot for Slide 3 -->
+  </div>
+</section>
+ 
+ 
+<!-- ═══════════════════════════════════════════
+     STATS STRIP
+     A dark-coloured banner showing key numbers about the college.
+═══════════════════════════════════════════ -->
+<div class="stats-strip">
+  <div class="stats-inner">
+ 
+    <!-- Each stat-item shows one number and its label below it -->
+    <div class="stat-item">
+      <span class="stat-num">150+</span>       <!-- Big number -->
+      <span class="stat-label">Years of Legacy</span>  <!-- Small label -->
+    </div>
+ 
+    <span class="stat-div">◆</span>  <!-- Diamond symbol used as a divider -->
+ 
+    <div class="stat-item">
+      <span class="stat-num">3000+</span>
+      <span class="stat-label">Students</span>
+    </div>
+ 
+    <span class="stat-div">◆</span>
+ 
+    <div class="stat-item">
+      <span class="stat-num">20+</span>
+      <span class="stat-label">Departments</span>
+    </div>
+ 
+    <span class="stat-div">◆</span>
+ 
+    <div class="stat-item">
+      <span class="stat-num">1993</span>
+      <span class="stat-label">University Constituent</span>
+    </div>
+ 
+    <span class="stat-div">◆</span>
+ 
+    <div class="stat-item">
+      <span class="stat-num">NAAC</span>
+      <span class="stat-label">Accredited</span>
+    </div>
+ 
+  </div>
+</div>
+ 
+ 
+<!-- ═══════════════════════════════════════════
+     MAIN CONTAINER
+     All page sections sit inside this wrapper div.
+     It limits the width and adds padding on sides (see ucm.css).
+═══════════════════════════════════════════ -->
+<div class="container">
+ 
+ 
+  <!-- ═══════════════════════════════
+       ABOUT SECTION
+       id="about" allows the link href="#about" in the nav to scroll here.
+       data-reveal makes this section fade in when scrolled into view (see ucm.js).
+  ═══════════════════════════════ -->
+  <section id="about" data-reveal>
+ 
+    <span class="section-label">Our Institution</span>  <!-- Small gold uppercase label -->
+    <h2 class="section-title">About UCM</h2>            <!-- Section heading -->
+ 
+    <!-- Two-column layout: text on the left, images on the right -->
+    <div class="about-section">
+ 
+      <!-- Left column: paragraphs describing the college -->
+      <div class="about-text">
+        <p>University College Mangalore, formerly known as Government College, is one of the oldest and most distinguished institutions of higher learning in coastal Karnataka. Originally established as a Government institution, it has grown over decades into a premier constituent college of Mangalore University.</p>
+        <p>The college became a First Grade College, introducing Bachelor degrees in Arts and Commerce. In 1993, under the Karnataka Government, it was elevated to a constituent college of Mangalore University — marking a defining chapter in its history.</p>
+        <p>Today, UCM offers undergraduate and postgraduate programs across Arts, Science, Commerce, and Management. The institution is led by <strong>Prof. Ganapathi Gowda S</strong> as Principal, and is guided by the vision: <em>"To be the centre for knowledge to all sections of the society."</em></p>
+        <!-- <strong> makes text bold. <em> makes text italic -->
+      </div>
+ 
+      <!-- Right column: two overlapping photos and a gold badge -->
+      <!-- HOW TO ADD IMAGES: place uc5.jpg and uc6.jpg inside your images/ folder -->
+      <div class="about-img-stack">
+ 
+        <!-- First (larger) image — top-left position -->
+        <img src="images/uc5.jpg" alt="UCM Campus" class="about-img about-img-1">
+        <!-- alt= text describes the image for screen readers and shows if image fails -->
+ 
+        <!-- Second (smaller) image — bottom-right position -->
+        <img src="images/uc6.jpg" alt="UCM Heritage Building" class="about-img about-img-2">
+ 
+        <!-- Gold badge that overlaps the images -->
+        <div class="about-badge">
+          <span class="about-badge-num">UCM</span>
+          <span class="about-badge-txt">Mangalore</span>
+        </div>
+      </div>
+ 
+    </div>
+  </section>
+ 
+ 
+  <!-- ═══════════════════════════════
+       HISTORY / TIMELINE SECTION
+       Shows key milestones in the college's history.
+  ═══════════════════════════════ -->
+  <section id="history" data-reveal>
+    <span class="section-label">Our Journey</span>
+    <h2 class="section-title">History</h2>
+ 
+    <!-- The .timeline div draws a vertical gold line using CSS pseudo-element ::before -->
+    <div class="timeline">
+ 
+      <!-- Each .timeline-item is one historical event -->
+      <!-- data-reveal animates each item in separately as you scroll down -->
+      <div class="timeline-item" data-reveal>
+        <div class="timeline-dot"></div>   <!-- Gold circle sitting on the vertical line -->
+        <div class="timeline-year">1868</div>     <!-- Year of the event -->
+        <div class="timeline-event">Government College Established</div>  <!-- Event title -->
+        <p class="timeline-desc">The college was established as a Government institution in Mangalore, laying the foundation of quality higher education in the coastal Karnataka region.</p>
+      </div>
+ 
+      <div class="timeline-item" data-reveal>
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1902</div>
+        <div class="timeline-event">Women Admitted</div>
+        <p class="timeline-desc">A landmark moment — women were admitted for the first time, progressively expanding the college's reach, diversity, and dynamism.</p>
+      </div>
+ 
+      <div class="timeline-item" data-reveal>
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1948</div>
+        <div class="timeline-event">First Grade College Status</div>
+        <p class="timeline-desc">The college was elevated to First Grade status with Bachelor degrees in Arts and Commerce introduced for students.</p>
+      </div>
+ 
+      <div class="timeline-item" data-reveal>
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1993</div>
+        <div class="timeline-event">University College Mangalore</div>
+        <p class="timeline-desc">The Government College became University College Mangalore — a constituent college of Mangalore University — marking a historic transformation.</p>
+      </div>
+ 
+      <div class="timeline-item" data-reveal>
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2006–2009</div>
+        <div class="timeline-event">New Programs Introduced</div>
+        <p class="timeline-desc">BBA (Travel &amp; Tourism Management), Journalism, and other modern programs were introduced to keep pace with academic trends and industry demands.</p>
+        <!-- &amp; is the safe HTML way to write the & character inside HTML -->
+      </div>
+ 
+    </div>
+  </section>
+ 
+ 
+  <!-- ═══════════════════════════════
+       PHOTO GALLERY SECTION
+ 
+       HOW TO ADD YOUR PHOTOS:
+       Step 1: Place your 6 photos inside the "images/" folder
+       Step 2: Name them uc7.jpg, uc8.jpg, uc9.jpg, uc10.jpg, uc11.jpg, uc12.jpg
+               (or change the filenames below to match your actual filenames)
+       Step 3: Make sure the filename in onclick="openLightbox(...)" matches the src= path
+  ═══════════════════════════════ -->
+  <section id="gallery" data-reveal>
+    <span class="section-label">Campus Life</span>
+    <h2 class="section-title">Photo Gallery</h2>
+ 
+    <!-- CSS Grid of 6 clickable photo cards -->
+    <div class="gallery-grid">
+ 
+      <!-- GALLERY PHOTO 1 -->
+      <!-- onclick="openLightbox('images/uc7.jpg')" opens this image in a fullscreen popup -->
+      <div class="gallery-item" onclick="openLightbox('images/uc7.jpg')">
+        <img src="images/uc7.jpg" alt="UCM Campus View">
+        <!-- .gallery-overlay appears on hover, shows a label over the image -->
+        <div class="gallery-overlay"><span>Campus View</span></div>
+      </div>
+ 
+      <!-- GALLERY PHOTO 2 -->
+      <div class="gallery-item" onclick="openLightbox('images/uc8.jpg')">
+        <img src="images/uc8.jpg" alt="UCM Heritage Building">
+        <div class="gallery-overlay"><span>Heritage Building</span></div>
+      </div>
+ 
+      <!-- GALLERY PHOTO 3 -->
+      <div class="gallery-item" onclick="openLightbox('images/uc9.jpg')">
+        <img src="images/uc10.webp" alt="UCM Library">
+        <div class="gallery-overlay"><span>Library</span></div>
+      </div>
+ 
+      <!-- GALLERY PHOTO 4 -->
+      <div class="gallery-item" onclick="openLightbox('images/uc10.jpg')">
+        <img src="images/uc11.jpg" alt="UCM Cultural Event">
+        <div class="gallery-overlay"><span>Cultural Events</span></div>
+      </div>
+ 
+      <!-- GALLERY PHOTO 5 -->
+      <div class="gallery-item" onclick="openLightbox('images/uc11.jpg')">
+        <img src="images/uc12.jpg" alt="UCM Sports">
+        <div class="gallery-overlay"><span>Sports Day</span></div>
+      </div>
+ 
+      <!-- GALLERY PHOTO 6 -->
+      <div class="gallery-item" onclick="openLightbox('images/uc12.jpg')">
+        <img src="images/uc13.webp" alt="UCM Classroom">
+        <div class="gallery-overlay"><span>Classrooms</span></div>
+      </div>
+ 
+    </div>
+  </section>
+ 
+ 
+  <!-- ═══════════════════════════════
+       VIDEO SECTION
+ 
+       HOW TO ADD YOUR VIDEOS:
+       Step 1: Create a folder called "videos" (same location as ucm.html)
+       Step 2: Put your MP4 video files inside:
+                 videos/uv1.mp4  → Fine Arts video
+                 videos/uv2.mp4  → Union Day video
+                 videos/uv3.mp4  → Sports Day video
+       Step 3: No thumbnail images needed — cards show a dark background
+ 
+       IMPORTANT: The onclick value must be just the KEY ('uv1', 'uv2', 'uv3')
+                  NOT the full path. The JS function adds the path automatically.
+  ═══════════════════════════════ -->
+  <section id="videos" data-reveal>
+    <span class="section-label">College Events</span>
+    <h2 class="section-title">Campus Highlights</h2>
+ 
+    <!-- Grid of 3 video cards -->
+    <div class="video-grid">
+ 
+      <!-- VIDEO CARD 1 -->
+      <!-- onclick="openVideo('uv1')" — pass only 'uv1' as the key -->
+      <!-- The openVideo() function in ucm.js converts 'uv1' → 'videos/uv1.mp4' -->
+      <div class="video-card" onclick="openVideo('uv3')">
+ 
+        <!-- Play button circle shown in the center of the card -->
+        <div class="play-circle">&#9654;</div>
+        <!-- &#9654; is the HTML code for the ▶ play triangle symbol -->
+ 
+        <!-- Title and subtitle text at the bottom of the card -->
+        <div class="video-info">
+          <div class="video-title">Fine Arts Showcase</div>
+          <div class="video-sub">Annual Cultural Events</div>
+        </div>
+      </div>
+ 
+      <!-- VIDEO CARD 2 -->
+      <div class="video-card" onclick="openVideo('uv1')">
+        <div class="play-circle">&#9654;</div>
+        <div class="video-info">
+          <div class="video-title">Union Day Celebrations</div>
+          <div class="video-sub">Student Union Activities</div>
+        </div>
+      </div>
+ 
+      <!-- VIDEO CARD 3 -->
+      <div class="video-card" onclick="openVideo('uv2')">
+        <div class="play-circle">&#9654;</div>
+        <div class="video-info">
+          <div class="video-title">Annual Sports Day</div>
+          <div class="video-sub">Athletics &amp; Competitions</div>
+        </div>
+      </div>
+ 
+    </div>
+  </section>
+ 
+ 
+  <!-- ═══════════════════════════════
+       DEPARTMENTS SECTION
+       Shows all college departments as emoji + name cards in a grid.
+  ═══════════════════════════════ -->
+  <section id="departments" data-reveal>
+    <span class="section-label">Academics</span>
+    <h2 class="section-title">Our Departments</h2>
+ 
+    <!-- CSS grid of department cards -->
+    <div class="dept-grid">
+      <!-- Each card: an emoji icon + department name -->
+      <!-- data-reveal makes each card animate in one by one on scroll -->
+      <div class="dept-card" data-reveal><div class="dept-icon">⚗️</div><div class="dept-name">Chemistry</div></div>
+      <div class="dept-card" data-reveal><div class="dept-icon">🌿</div><div class="dept-name">Botany</div></div>
+      <div class="dept-card" data-reveal><div class="dept-icon">🦋</div><div class="dept-name">Zoology</div></div>
+      <div class="dept-card" data-reveal><div class="dept-icon">⚡</div><div class="dept-name">Physics</div></div>
+      <div class="dept-card" data-reveal><div class="dept-icon">📐</div><div class="dept-name">Mathematics</div></div>
+      <div class="dept-card" data-reveal><div class="dept-icon">💻</div><div class="dept-name">Computer Science</div></div>
+      <div class="dept-card" data-reveal><div class="dept-icon">🔬</div><div class="dept-name">Microbiology</div></div>
+      <div class="dept-card" data-reveal><div class="dept-icon">📊</div><div class="dept-name">Commerce</div></div>
+      <div class="dept-card" data-reveal><div class="dept-icon">📚</div><div class="dept-name">English</div></div>
+      <div class="dept-card" data-reveal><div class="dept-icon">🏛️</div><div class="dept-name">History</div></div>
+      <div class="dept-card" data-reveal><div class="dept-icon">🌐</div><div class="dept-name">Political Science</div></div>
+      <div class="dept-card" data-reveal><div class="dept-icon">🌍</div><div class="dept-name">Sociology</div></div>
+      <div class="dept-card" data-reveal><div class="dept-icon">📰</div><div class="dept-name">Journalism</div></div>
+      <div class="dept-card" data-reveal><div class="dept-icon">✈️</div><div class="dept-name">Travel &amp; Tourism</div></div>
+      <div class="dept-card" data-reveal><div class="dept-icon">🗺️</div><div class="dept-name">Geography</div></div>
+      <div class="dept-card" data-reveal><div class="dept-icon">🇮🇳</div><div class="dept-name">Hindi</div></div>
+      <div class="dept-card" data-reveal><div class="dept-icon">📖</div><div class="dept-name">Kannada</div></div>
+      <div class="dept-card" data-reveal><div class="dept-icon">📜</div><div class="dept-name">Sanskrit</div></div>
+      <div class="dept-card" data-reveal><div class="dept-icon">📈</div><div class="dept-name">Economics</div></div>
+      <div class="dept-card" data-reveal><div class="dept-icon">💼</div><div class="dept-name">BBA (Travel &amp; Tourism)</div></div>
+    </div>
+  </section>
+ 
+ 
+  <!-- ═══════════════════════════════
+       CONTACT SECTION
+  ═══════════════════════════════ -->
+  <section id="contact" data-reveal>
+    <span class="section-label">Reach Us</span>
+    <h2 class="section-title">Contact Us</h2>
+ 
+    <!-- Grid of contact info cards -->
+    <div class="contact-section">
+ 
+      <!-- Address card -->
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Address</div>
+          <!-- <br> creates a line break inside the address -->
+          <div class="contact-val">U.P. Malya Road, Hampanakatte,<br>Mangalore – 575 001, Karnataka, India</div>
+        </div>
+      </div>
+ 
+      <!-- Phone card -->
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-val">0824-2424760</div>
+        </div>
+      </div>
+ 
+      <!-- Email card -->
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-val">ucmangalore1@gmail.com</div>
+        </div>
+      </div>
+ 
+      <!-- Office hours card -->
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <div class="contact-label">Office Hours</div>
+          <div class="contact-val">Mon – Sat: 9:00 AM – 5:00 PM</div>
+        </div>
+      </div>
+ 
+      <!-- Website link card -->
+      <div class="contact-item">
+        <div class="contact-icon">🌐</div>
+        <div>
+          <div class="contact-label">Website</div>
+          <!-- target="_blank" opens the link in a new browser tab -->
+          <div class="contact-val">
+            <a href="https://universitycollegemangalore.com" target="_blank">universitycollegemangalore.com</a>
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+  </section>
+ 
+ 
+</div><!-- End of .container div -->
+ 
+ 
+<!-- ═══════════════════════════════
+     FOOTER
+     Displayed at the very bottom of the page.
+═══════════════════════════════ -->
+<footer>
+  <p id="footer-text">© 2026 Discovery Bharat By <strong>T&amp;Team</strong></p>
+</footer>
+ 
+ 
+<!-- ═══════════════════════════════
+     SCROLL TO TOP BUTTON
+     Hidden by default. Appears at the bottom-right corner
+     when the user scrolls down more than 400px (ucm.js handles this).
+     Clicking it scrolls the page back to the very top smoothly.
+═══════════════════════════════ -->
+<button id="scrollTopBtn" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Scroll to top">
+  &#8593;
+  <!-- &#8593; is the HTML code for the ↑ up arrow symbol -->
+</button>
+ 
+ 
+<!-- ═══════════════════════════════
+     LIGHTBOX MODAL (Image Popup)
+ 
+     This is a hidden fullscreen popup for gallery images.
+     It is invisible until openLightbox() adds the class "open" to it.
+     Clicking on the dark background or the × button closes it.
+═══════════════════════════════ -->
+<div id="lightboxModal" class="modal-overlay" onclick="closeLightbox(event)">
+  <!-- .modal-overlay is the dark semi-transparent background covering the screen -->
+ 
+  <div class="modal-box">
+    <!-- × close button in the top-right corner -->
+    <!-- onclick="closeLightbox()" closes the popup (defined in ucm.js) -->
+    <button class="modal-close" onclick="closeLightbox()">&times;</button>
+    <!-- &times; is the HTML code for the × symbol -->
+ 
+    <!-- The image is empty at first. openLightbox() fills in the src when user clicks a photo -->
+    <img id="lightboxImg" src="" alt="Gallery image">
+  </div>
+</div>
+ 
+ 
+<!-- ═══════════════════════════════
+     VIDEO MODAL (Video Popup)
+ 
+     This is a hidden fullscreen popup for videos.
+     It is invisible until openVideo() adds the class "open" to it.
+     Clicking the dark background or the × button closes it and pauses the video.
+═══════════════════════════════ -->
+<div id="videoModal" class="modal-overlay" onclick="closeVideoModal(event)">
+ 
+  <div class="modal-box">
+    <!-- × close button -->
+    <button class="modal-close" onclick="closeVideoModal()">&times;</button>
+ 
+    <!-- HTML5 video player. "controls" shows the play/pause/volume bar -->
+    <video id="modalVideo" controls>
+      <!-- The src starts empty. openVideo() in ucm.js sets the correct file path -->
+      <source id="modalVideoSrc" src="" type="video/mp4">
+      <!-- type="video/mp4" tells the browser the video format -->
+ 
+      <!-- This message shows only if the browser cannot play video at all -->
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+ 
+ 
+<!-- ═══════════════════════════════
+     LOAD JAVASCRIPT FILE
+     This <script> tag must be at the BOTTOM of the body.
+     Placing it here ensures all HTML elements are loaded
+     before JavaScript tries to access them.
+═══════════════════════════════ -->
+<script src="ucm.js"></script>
+ 
+</body>
+</html>

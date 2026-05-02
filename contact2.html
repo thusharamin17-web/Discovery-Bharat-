@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Discovery Bharat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --saffron:    #FF9933;
+            --saffron-lt: #FFF4E6;
+            --saffron-dk: #CC7000;
+            --green:      #138808;
+            --green-lt:   #E8F5E6;
+            --green-dk:   #0A5C04;
+            --navy:       #000080;
+            --white:      #FFFFFF;
+            --off-white:  #F8F6F2;
+            --stone:      #E8E5DF;
+            --ink:        #12122A;
+            --muted:      #6A6A82;
+            --transition: 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', 'Segoe UI', sans-serif;
+            background: var(--off-white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            animation: pageIn 0.6s ease both;
+        }
+
+        @keyframes pageIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255,153,51,0.06) 1px, transparent 1px);
+            background-size: 28px 28px;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--saffron) 33.33%, var(--white) 33.33% 66.66%, var(--green) 66.66%);
+            z-index: 100;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 28px;
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            letter-spacing: 0.5px;
+            transition: color var(--transition), transform var(--transition);
+        }
+
+        .back-link:hover {
+            color: var(--saffron-dk);
+            transform: translateX(-4px);
+        }
+
+        .table-container {
+            background: var(--white);
+            border-radius: 22px;
+            border: 1px solid var(--stone);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.09);
+            overflow: hidden;
+            width: 100%;
+            max-width: 860px;
+            position: relative;
+        }
+
+        /* Saffron + green corner accents */
+        .table-container::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 50px; height: 50px;
+            border-top: 3px solid var(--saffron);
+            border-left: 3px solid var(--saffron);
+            border-radius: 22px 0 0 0;
+            transition: width 0.4s ease, height 0.4s ease;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .table-container::after {
+            content: "";
+            position: absolute;
+            bottom: 0; right: 0;
+            width: 50px; height: 50px;
+            border-bottom: 3px solid var(--green);
+            border-right: 3px solid var(--green);
+            border-radius: 0 0 22px 0;
+            transition: width 0.4s ease, height 0.4s ease;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .table-container:hover::before,
+        .table-container:hover::after {
+            width: 70px; height: 70px;
+        }
+
+        .table-header {
+            background: var(--ink);
+            padding: 28px 36px;
+            position: relative;
+        }
+
+        /* Tricolor bar under header */
+        .table-header::after {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg,
+                var(--saffron) 33.33%,
+                rgba(255,255,255,0.08) 33.33% 66.66%,
+                var(--green) 66.66%
+            );
+        }
+
+        .table-header .label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255,153,51,0.7);
+            margin-bottom: 6px;
+        }
+
+        .table-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.3rem, 2.5vw, 2rem);
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 0.5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: var(--off-white);
+            color: var(--muted);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 16px 36px;
+            text-align: left;
+            font-weight: 500;
+            border-bottom: 1px solid var(--stone);
+        }
+
+        td {
+            padding: 18px 36px;
+            color: #3A3A55;
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--stone);
+            font-weight: 400;
+            transition: color var(--transition);
+        }
+
+        tr {
+            transition: background var(--transition), transform var(--transition);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: var(--saffron-lt);
+        }
+
+        tbody tr:hover td {
+            color: var(--ink);
+        }
+
+        /* Name cell */
+        .name-cell {
+            font-weight: 500;
+            color: var(--ink);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Avatar initials circle */
+        .avatar {
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--saffron-lt), var(--green-lt));
+            border: 1px solid var(--stone);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--saffron-dk);
+            flex-shrink: 0;
+        }
+
+        .email-link {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color var(--transition);
+        }
+
+        .email-link:hover {
+            color: var(--saffron-dk);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            th, td { padding: 14px 20px; }
+            .table-header { padding: 22px 20px; }
+            body { padding: 24px 12px; }
+            .avatar { display: none; }
+        }
+
+        footer {
+            margin-top: 36px;
+            text-align: center;
+            padding: 18px 24px;
+            background: var(--ink);
+            color: rgba(255,255,255,0.5);
+            font-size: 0.84rem;
+            letter-spacing: 0.5px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 860px;
+        }
+
+        footer strong {
+            color: var(--saffron);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="main.html" class="back-link">← Back to Map</a>
+
+    <div class="table-container">
+        <div class="table-header">
+            <div class="label">Discovery Bharat</div>
+            <h2>Contact Directory</h2>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="name-cell">
+                            <span class="avatar">TA</span>
+                            THUSHAR AMIN
+                        </div>
+                    </td>
+                    <td>+91 7899857399</td>
+                    <td><a href="mailto:thusharamin17@gmail.com" class="email-link">thusharamin17@gmail.com</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="name-cell">
+                            <span class="avatar">SD</span>
+                            Supreeth Das
+                        </div>
+                    </td>
+                    <td>+91 8217599144</td>
+                    <td><a href="mailto:supreethdas05@gmail.com" class="email-link">supreethdas05@gmail.com</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="name-cell">
+                            <span class="avatar">PK</span>
+                            Prajwal Kulal
+                        </div>
+                    </td>
+                    <td>+91 8073263974</td>
+                    <td><a href="mailto:prajwalkulal198@gmail.com" class="email-link">prajwalkulal198@gmail.com</a></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>© 2026 Discovery Bharat By <strong>T&amp;Team</strong></p>
+    </footer>
+
+</body>
+</html>
